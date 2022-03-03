@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <meta charset="UTF-8">
+    <title>Image Classification</title>
+    <style>
+// Vars and Reset
+//
+$theme:       #454cad;
+$dark-text:   #5f6982;
+
+html,body,* { box-sizing: border-box; font-size: 16px;}
+html,body   { height: 100%; text-align: center;}
+body        { padding: 2rem; background: #f8;}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 26px;
+  line-height: 1;
+  color: $theme;
+  margin-bottom: 0;
+}
+p {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  color: $dark-text;
+}
+
+
+  div {
+    margin: 0 0 .5rem 0;
+    color: $dark-text;
+  }
+.container {
+  max-width: 1170px;
+  margin: auto;
+  height: 1000px;
+}
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+}
+    </style>
+</head>
+<body>
+<h2>Image Classification</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="imageFile" />
+    <input type="submit" name="submit" value="Upload" />
+</form>
+
+
+<div class="container" style="margin-top:2rem">
+    <img src={{image_path}}>
+    <div style="font-family: 'Roboto' ">
+        {{predictions}}
+    </div>
+    
+</div>
+
+
+
+
+
+</body>
+</html>
